@@ -9,7 +9,7 @@
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"build:ui": "rm -rf build && cd ../part3_phonebook_frontend@/ && npm run build --prod && cp -r build ../part3",
 		"deploy": "git push heroku master",
-		"deploy:full": "npm run build:ui && git add . && git commit -m 3.11FixedAgain --author \"Faiz Alam <faizalam9883@protonmail.com>\" && npm run deploy",
+		"deploy:full": "npm run build:ui && git add . && git commit -m 3.21 --author \"Faiz Alam <faizalam9883@protonmail.com>\" && npm run deploy",
 		"logs:prod": "heroku logs --tail"
 	},
 	"author": "",

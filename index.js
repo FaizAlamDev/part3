@@ -42,13 +42,15 @@ app.get('/api/persons/:id', (request, response, next) => {
 		.catch((error) => next(error))
 })
 
-// app.get('/info', (request, response) => {
-// 	const info = `<p>
-// 				Phonebook has info for ${persons.length} people
-// 				</p>
-// 				<p>${Date()}</p>`
-// 	response.send(info)
-// })
+app.get('/info', (request, response) => {
+	Person.find({}).then((result) => {
+		const info = `<p>
+				Phonebook has info for ${result.length} people
+				</p>
+				<p>${Date()}</p>`
+		response.send(info)
+	})
+})
 
 app.post('/api/persons', (request, response) => {
 	const body = request.body
@@ -58,11 +60,7 @@ app.post('/api/persons', (request, response) => {
 			error: 'name or number missing',
 		})
 	}
-	// if (persons.find((p) => p.name === body.name)) {
-	// 	return response.status(400).json({
-	// 		error: 'name must be unique',
-	// 	})
-	// }
+
 	const person = new Person({
 		name: body.name,
 		number: body.number,

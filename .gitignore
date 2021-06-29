@@ -1,3 +1,4 @@
 notesapp/
 node_modules/
 requests/
+.env
